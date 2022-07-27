@@ -1,9 +1,9 @@
 import axios from "axios";
 import {useState, useEffect} from 'react';
+
 function MusicList() {
 //  the container is the data we get from the api
 const [results,setResults] = useState([])
-
 useEffect(() => {
     fetchData()
   },[])
