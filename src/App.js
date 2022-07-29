@@ -1,5 +1,5 @@
 import MusicList from './components/MusicList.js';
-import MusicAdd from './components/MusicAdd.js';
+import Profile from './components/profile.js';
 import Register from './components/register.js';
 import Login from './components/login.js';
 import Errror404 from './components/error404.js';
@@ -34,6 +34,7 @@ function App() {
           <Route path="/login" element={<Login />}/>
           <Route path="/register" element={<Register />}/>
           <Route path="/error404" element={<Errror404 />}/>
+          <Route path="/profile" element={<Profile />}/>
         </Routes>
       </div>
     </Router>

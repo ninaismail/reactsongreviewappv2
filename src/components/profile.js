@@ -1,7 +1,12 @@
 import React from 'react'
-function error404() {
+import MusicAdd from './MusicAdd.js';
+
+function Profile() {
   return (
-<div>ADD PLAYLIST</div> 
+<div>
+    <h1>ADD PLAYLIST</h1>
+    <MusicAdd />
+</div> 
   )
 }
-export default error404;
+export default Profile;
