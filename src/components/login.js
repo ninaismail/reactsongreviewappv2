@@ -7,7 +7,8 @@ function Login() {
 const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  
+  const [loginStatus, setLoginStatus] = useState('');
+  const [authenticated, setauthenticated] = useState(localStorage.getItem(localStorage.getItem("authenticated")|| false));
   const onSubmit = (e) => {
     e.preventDefault()
     const user = {
@@ -16,13 +17,24 @@ const navigate = useNavigate();
     };
     axios.post('http://localhost:3001/accounts' , user)
         .then((res) => {
-            console.log(res.data)
+          if(res.data.message){
+            setLoginStatus(res.data.message)
+            localStorage.setItem("authenticated", false);  
+            console.log(localStorage)
+            setauthenticated(false)
+          }else{          
+            localStorage.setItem("authenticated", true);
+            console.log(localStorage)
+            setauthenticated(true)
+            navigate('/profile'); 
+          }   
+          console.log(res.data)
         }).catch((error) => {
             console.log(error)
         });
 };
     return (
-        <div class="authform">
+        <div className="authform">
 <form onSubmit={onSubmit}>
           <h3>Sign In</h3>
         <div className="mb-3">
@@ -60,10 +72,7 @@ const navigate = useNavigate();
           </div>
         </div>
         <div className="d-grid">
-          <button type="submit" className="btn btn-primary"
-          onClick={() => {
-            navigate('/home');  
-          }}>
+          <button type="submit" className="btn btn-primary">
             Submit
           </button>
         </div>

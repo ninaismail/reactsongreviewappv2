@@ -18,7 +18,7 @@ function App() {
         <nav>
           <ul>
             <li>
-              <Link to="/home">Home</Link>
+              <Link to="/">Home</Link>
             </li>
             <li>
               <Link to="/register">Register</Link>
@@ -30,10 +30,9 @@ function App() {
         </nav>
 
         <Routes>
-          <Route path="/" element={<MusicAdd />}/>
+          <Route path="/" element={<MusicList />}/>
           <Route path="/login" element={<Login />}/>
           <Route path="/register" element={<Register />}/>
-          <Route path="/home" element={<MusicList Authorized={true}/>}/>
           <Route path="/error404" element={<Errror404 />}/>
         </Routes>
       </div>
