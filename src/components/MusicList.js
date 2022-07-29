@@ -1,13 +1,18 @@
 import axios from "axios";
 import {useState, useEffect} from 'react';
+import { Navigate } from 'react-router-dom';
 
-function MusicList() {
-//  the container is the data we get from the api
+function MusicList({Authorized}) {
+  //  the container is the data we get from the api
 const [results,setResults] = useState([])
 useEffect(() => {
     fetchData()
   },[])
- function fetchData(){
+
+if(!Authorized){
+  return <Navigate to="/login"/>
+}
+function fetchData(){
   axios.request('http://localhost:3001/music').then(function (response) {
     console.log(response.data)
   setResults(response.data)

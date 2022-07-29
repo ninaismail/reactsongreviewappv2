@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import {useState, useEffect} from 'react';
+import {useState} from 'react';
 
 function Register() {
   const [emailReg, setEmailReg] = useState('');
@@ -51,7 +51,7 @@ function Register() {
           </button>
         </div>
         <p className="forgot-password text-right">
-          Already registered <a href="/sign-in">sign in?</a>
+          Already registered <a href="/login">sign in?</a>
         </p>
       </form>
       </div>
