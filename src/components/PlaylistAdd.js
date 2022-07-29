@@ -20,8 +20,8 @@ export default class CreatePlaylist extends Component {
     onSubmit(e) {
         e.preventDefault()
         const PlaylistObject = {
-            title: this.state.TITLE,
-            uSERiD: this.state.userid
+            Title: this.state.title,
+            UserID: this.state.userid
         };
         axios.post('http://localhost:3003/myplaylists' , PlaylistObject)
             .then((res) => {
@@ -29,7 +29,7 @@ export default class CreatePlaylist extends Component {
             }).catch((error) => {
                 console.log(error)
             });
-        this.setState({ name: '', userid: '' })
+        this.setState({ title: '', userid: '' })
     }
 
     render() {

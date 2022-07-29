@@ -4,7 +4,7 @@ import PlaylistAdd from './PlaylistAdd.js';
 function Profile() {
   return (
 <div>
-    <h1>ADD PLAYLIST</h1>
+    <h1>Add a New Playlist Profile</h1>
     <PlaylistAdd />
 </div> 
   )
