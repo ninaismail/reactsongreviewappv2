@@ -1,14 +1,37 @@
 import React from 'react';
+import axios from 'axios';
+import {useState, useEffect} from 'react';
 function Login() {
+
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  
+  const onSubmit = (e) => {
+    e.preventDefault()
+    const user = {
+        Email: email,
+        Password: password
+    };
+    axios.post('http://localhost:3001/accounts' , user)
+        .then((res) => {
+            console.log(res.data)
+        }).catch((error) => {
+            console.log(error)
+        });
+};
     return (
-        <form>
-        <h3>Sign In</h3>
+        <div class="authform">
+<form onSubmit={onSubmit}>
+          <h3>Sign In</h3>
         <div className="mb-3">
           <label>Email address</label>
           <input
             type="email"
             className="form-control"
             placeholder="Enter email"
+            onChange={  (e) =>{
+              setEmail(e.target.value);
+            }} 
           />
         </div>
         <div className="mb-3">
@@ -17,6 +40,9 @@ function Login() {
             type="password"
             className="form-control"
             placeholder="Enter password"
+            onChange={  (e) =>{
+              setPassword(e.target.value);
+            }} 
           />
         </div>
         <div className="mb-3">
@@ -40,6 +66,7 @@ function Login() {
           Forgot <a href="#">password?</a>
         </p>
       </form>
+      </div>
     )
   }
   export default Login;
